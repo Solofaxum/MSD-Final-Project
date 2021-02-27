@@ -1,0 +1,36 @@
+{
+    "expo": {
+      "name": "cs571-final-project-Solofaxum",
+      "slug": "cs571-final-project-Solofaxum",
+      "platforms": [
+        "ios",
+        "android",
+        "web"
+      ],
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/icon.png",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      },
+      "updates": {
+        "fallbackToCacheTimeout": 0
+      },
+      "assetBundlePatterns": [
+        "**/*"
+      ],
+      "ios": {
+        "supportsTablet": true
+      },
+      "android": {
+        "package": "ca.brentvatne.growlerprowler",
+        "config": {
+          "googleMaps": {
+            "apiKey": "AIzaSyD7syyid6n7wk963hifYWdRza2cM-FBH2U"
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,48 @@
+<mat-card class="my-card">
+    <mat-card-content>
+       <mat-toolbar>
+          <span>Add Product</span>
+       </mat-toolbar>
+       <mat-card class="my-card">
+          <mat-card-content>
+             <form class="my-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+               <mat-form-field class="full-width" appearance="outline">
+                  <mat-label  type="text">Farm Name</mat-label>
+                  <input type="text" matInput placeholder="Your farm name" formControlName="farmname" required>
+                  <!-- <mat-hint>Farm Name</mat-hint>  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+               </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                   <mat-label  type="text">Product title</mat-label>
+                   <input type="text" matInput placeholder="product title" formControlName="title" required>
+                   <!-- <mat-hint>product name</mat-hint>  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                </mat-form-field>
+
+                <mat-form-field  type="text" class="full-width" appearance="outline">
+                   <mat-label>Price</mat-label>
+                   <input type="number" matInput placeholder="price per pound" formControlName="price" >
+                   <!-- <mat-hint>Price per pound</mat-hint>  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                </mat-form-field>
+ 
+                <mat-form-field class="full-width" appearance="outline">
+                   <mat-label type="text">Describtion</mat-label>
+                   <input type="text" matInput placeholder="describtion" formControlName="describtion" required>
+                   <!-- <mat-hint>Tell us about this product</mat-hint>  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                </mat-form-field>
+               
+                <div class="full-width">
+                  <label for="file" class="color"> <mat-icon>file_upload</mat-icon>Upload Image</label>
+                 
+                  <input 
+                      formControlName="image"
+                      id="file" 
+                      type="file" 
+                      (change)="onClick($event)">
+              </div>
+            
+                   <button type="submit" [disabled]='myForm.invalid'  mat-raised-button color="primary">ADD</button>
+                <a mat-raised-button routerLink="../lists" class="btn btn-link">See your product lists ?</a>
+             </form>
+          </mat-card-content>
+       </mat-card>
+       <div></div>
+       

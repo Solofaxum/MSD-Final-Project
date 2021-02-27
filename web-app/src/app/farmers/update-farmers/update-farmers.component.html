@@ -1,0 +1,37 @@
+
+  <mat-card class="my-card">
+    <mat-card-content>
+       <mat-toolbar>
+          <span>Edit Farmers Profile</span>
+       </mat-toolbar>
+       <mat-card class="my-card">
+          <mat-card-content>
+             <form class="my-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+               <mat-form-field class="full-width" appearance="outline">
+                  <mat-label  type="text">Farm Name</mat-label>
+                  <input type="text" matInput placeholder="farmers farm name" formControlName="farmname" required>
+                  <!-- <mat-hint>Farm Name</mat-hint>  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+               </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                   <mat-label  type="text">Farmers Full Name</mat-label>
+                   <input type="text" matInput placeholder="full name" formControlName="fullname" required>
+                   <!-- <mat-hint>full name</mat-hint>  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                </mat-form-field>
+
+                <mat-form-field  type="text" class="full-width" appearance="outline">
+                   <mat-label>Email</mat-label>
+                   <input type="text" matInput placeholder="farmers email" formControlName="email" >
+                   <!-- <mat-hint>Price per pound</mat-hint>  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                </mat-form-field>
+ 
+                <mat-form-field class="full-width" appearance="outline">
+                   <mat-label type="text">Password</mat-label>
+                   <input type="text" matInput placeholder="password" formControlName="password" required>
+                   <!-- <mat-hint>Tell us about this product</mat-hint>  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                </mat-form-field>
+                <br><br>
+                   <button type="submit" [disabled]='myForm.invalid'  mat-raised-button color="primary">Edit</button>
+                <a mat-raised-button routerLink="../farmerlists" class="btn btn-link">Back to lists ?</a>
+             </form>
+          </mat-card-content>
+       </mat-card>

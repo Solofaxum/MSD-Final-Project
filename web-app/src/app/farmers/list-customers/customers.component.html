@@ -1,0 +1,80 @@
+<div class="container">
+    <h1 class="table">List of customers</h1>
+  
+  <!-- <mat-toolbar class="search-block mat-elevation-z4" [class.active]="toggleSearch">
+     <mat-toolbar-row style="padding: 0 5px;">
+       <button class="search-icon" mat-icon-button disabled>
+         <mat-icon>search</mat-icon>
+       </button>
+       <input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchText" #searchbar>
+       <button mat-button mat-icon-button (click)="searchClose()">
+         <mat-icon>close</mat-icon>
+       </button> 
+   </mat-toolbar-row>
+   </mat-toolbar> -->
+  
+  
+    <mat-table [dataSource]="customers" class="table">
+      <!-- Farm Name Definition -->
+      <ng-container matColumnDef="firstname">
+        <mat-header-cell *matHeaderCellDef style="font-weight: 700;"> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.firstname}} </mat-cell>
+      </ng-container>
+  
+      <!-- Full Name-->
+      <ng-container matColumnDef="lastname" style="font-weight: 700;" mat-sort-header="fullname">
+        <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.lastname}} </mat-cell>
+      </ng-container>
+  
+      <!-- Email Definition -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef style="font-weight: 700;"> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.email}}
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Password Definition -->
+      <ng-container matColumnDef="password">
+        <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.password}}
+        </mat-cell>
+      </ng-container>
+  
+      <!-- edit Definition -->
+      <ng-container matColumnDef="editpassword">
+        <mat-header-cell *matHeaderCellDef> Update Password </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <a mat-list-item [routerLink]="['','farmers', 'editUser']" [state]="{myList:row}">Edit
+            Password</a>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Account Status -->
+      <ng-container matColumnDef="acountstatus">
+        <mat-header-cell *matHeaderCellDef> Current Account Status </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.acountstatus ? "Activated" : "Deactivated"}}
+          
+        </mat-cell>
+      </ng-container>
+  
+      <!-- edit Definition -->
+      <ng-container matColumnDef="statuschange">
+        <mat-header-cell *matHeaderCellDef > Action for Account Status </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button *ngIf="!row.acountstatus" (click)="statusUpdate(row._id, true)">Activate</button>
+          <button *ngIf="row.acountstatus" (click)="statusUpdate(row._id, false)">Deactivate</button>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Headers and Rows  -->
+      <mat-header-row
+        *matHeaderRowDef="['firstname', 'lastname', 'email', 'password', 'editpassword', 'acountstatus', 'statuschange']">
+      </mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: ['firstname', 'lastname', 'email', 'password', 'editpassword', 'acountstatus', 'statuschange']">
+      </mat-row>
+    </mat-table>
+  
+  
+  </div>

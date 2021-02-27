@@ -1,0 +1,49 @@
+
+  .button{
+    margin-left: 20px;
+     width: 10%; 
+  }
+  .container {
+    align-items: center;
+    padding-left: 5%;
+  /* min-height: 100%;
+  width: 100%; */
+}
+  .search-form {
+    padding-left: 50%;
+     width: 40%; 
+  }
+  mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  height: 100%;
+}
+.example-card {
+  background-color: rgb(196, 216, 214);
+  padding: 20px;
+  margin: 20px;
+  max-width: 400px;
+display: table-cell;
+box-sizing: border-box;
+} 
+
+.example-header-image {
+  background-image: url('https://storage.cloud.google.com/farmers-market-association/safe.jpg');
+  background-size: cover;
+}

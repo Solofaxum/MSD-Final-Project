@@ -1,0 +1,171 @@
+
+<div style="height: 80vh;">
+  <mat-toolbar color="primary" SideClass="navbar navbar-expand-lg navbar-dark indigo" mdbStickyHeader>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>account_balance</mat-icon>
+      </button>
+      <span>Farmers Online Market Association</span>
+      <span class="spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a mat-button routerLink="/products/posts" *ngIf="token" routerLinkActive="mat-accent">Add Product</a>
+        <a mat-button [routerLink]="['products', 'lists']" *ngIf="token" routerLinkActive="mat-accent">Products</a>
+        <a mat-button [routerLink]="['farmers', 'farmerlists']" *ngIf="token" routerLinkActive="mat-accent">Farmers</a>
+        <a mat-button [routerLink]="['farmers', 'customerlists']" *ngIf="token" routerLinkActive="mat-accent">Customers List</a>
+        <a mat-button [routerLink]="['products', 'orders']" *ngIf="token" routerLinkActive="mat-accent">Orders</a>
+        <span class="spacer"></span>
+
+        <span>
+          <a mat-button routerLink="/register" *ngIf="!token" routerLinkActive="mat-accent">Register</a>
+          <a mat-button routerLink="/login" *ngIf="!token" routerLinkActive="mat-accent">Login</a>
+          <button mat-button *ngIf="token" (click)="onLogout()" routerLinkActive="mat-accent">Logout</button>
+          
+        </span>
+        <div class="form-group has-feedback" *ngIf="token">
+          <label for="search" class="sr-only">Search</label>
+          <input type="text" class="form-control" name="search" id="search" placeholder="search">
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+        <span class="spacer"></span>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a mat-list-item *ngIf="token" [routerLink]="['products', 'posts']">Add Product</a>
+        <a mat-list-item *ngIf="token" [routerLink]="['products', 'lists']">Products List</a>
+        <a mat-list-item *ngIf="token" [routerLink]="['farmers', 'lists']">Farmers List</a>
+        <a mat-list-item *ngIf="!token" routerLink="/register">Register</a>
+        <a mat-list-item *ngIf="!token" routerLink="/login">Login</a>
+        <button mat-list-item *ngIf="token" (click)="onLogout()" routerLinkActive="mat-accent">Logout</button>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+
+
+
+  <!-- <footer class="footer"> -->
+  <div class=" footer" fxShow="true" fxHide.lt-md>
+    <div class="fixed content has-text-centered">
+      <footer class="page-footer font-small stylish-color-dark pt-4">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+          <!-- Grid row -->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+              <!-- Content -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About Us</h5>
+              <p>During these uncertain times, a dependable food supply is more important than ever. We all need to eat,
+                and U.S. farmers—like many essential food industry businesses—are hard at work providing quality,
+                sustainable ingredients to feed our communities.we are here to coordinate farmers for their online sale process. Be part of the today.</p>
+                <br>
+              <img mat-card-image src="https://storage.googleapis.com/farmers-market-association/1595428325728Grapes.jpg" alt="Photo of our garden orign vegetables" style="width: 400px; height: 200px;" /> 
+            </div>
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none">
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+              <!-- Links -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact us </h5>
+              <ul class="list-unstyled">
+                <li>
+                 
+                  <a href="#!">Not linked yet</a>
+                </li>
+                              
+              </ul>
+
+            </div>
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none">
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+              <!-- Links -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">List of products</h5>
+              <ul class="list-unstyled">
+                <li>
+                  
+                  
+                  <a href="#!">Not linked yet</a>
+                </li>
+              </ul>
+            </div>
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none">
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+              <!-- Links -->
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Criterias</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!">Not linked yet</a>
+                </li>
+              </ul>
+              
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+        <!-- Footer Links -->
+        <hr>
+        
+        <!-- Call to action -->
+        <ul class="list-unstyled list-inline text-center py-2">
+          <div class="container">
+          <li class="list-inline-item">
+            <h5 class="mb-1">
+              <a mat-button routerLink="/register" *ngIf="!token" routerLinkActive="mat-accent">Register For Free</a>
+            </h5>
+            
+          </li>
+        </div>
+          <!-- Footer Elements -->
+  <div class="container">
+
+    <!--Grid row-->
+    <div class="row d-flex justify-content-center">
+
+      <!--Grid column-->
+      <div class="col-md-2">
+
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+        </ul>
+        <!-- Call to action -->
+        <hr>
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center">
+          <li class="list-inline-item">
+            <a mdbBtn floating="true" color="fb" class="mx-1" mdbWavesEffect>
+              <!-- <mdb-icon fab icon="facebook"></mdb-icon> -->
+            </a>
+          </li>
+        </ul>
+        <a href="#" class="fa fa-facebook"></a>
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+          <p>&copy; All rights reserved for <i>FarmersMarketAssociation</i> 2020</p>
+          <a href="https://www.imperfectfoods.com/?utm_source=adwords&gclid=EAIaIQobChMIl86DtcPe6gIVhobACh2BbQJTEAAYASAAEgJ56vD_BwE"> FarmersMarketAssociation.com</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>

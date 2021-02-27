@@ -1,0 +1,41 @@
+<mat-card class="my-card">
+   <mat-card-content>
+      <div class="container">
+      <mat-toolbar>
+         <span>Registration</span>
+      </mat-toolbar>
+   </div>
+      </mat-card-content>
+      <mat-card class="my-card">
+         <div class="container">
+
+
+            <mat-card-content>
+               <form class="my-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+                  <mat-form-field class="full-width">
+                     <mat-label>Farm name</mat-label>
+                     <input type="text" matInput placeholder="Farm name" formControlName="farmname" required>
+
+                  </mat-form-field>
+                  <mat-form-field class="full-width">
+                     <mat-label>Farmer Full Name</mat-label>
+                     <input type="text" matInput placeholder="full Name" formControlName="fullname">
+                  </mat-form-field>
+
+                  <mat-form-field class="full-width">
+                     <mat-label type="email">Email</mat-label>
+                     <input type="email" matInput placeholder="Email" formControlName="email" required>
+                  </mat-form-field>
+
+                  <mat-form-field class="full-width">
+                     <mat-label type="password">Password</mat-label>
+                     <input type="password" matInput placeholder="Password" formControlName="password" required>
+                  </mat-form-field>
+
+                  <button type="submit" [disabled]='myForm.invalid' mat-raised-button color="primary">REGISTER</button>
+                  <a mat-raised-button routerLink="../login" class="btn btn-link">Have Account ?</a>
+               </form>
+            </mat-card-content>
+         </div>
+      </mat-card>

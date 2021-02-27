@@ -1,0 +1,37 @@
+
+<h1>List of orders</h1>
+
+  <mat-table [dataSource]="result">
+    <!-- User name Definition -->
+    <ng-container matColumnDef="customerEmail">
+      <mat-header-cell *matHeaderCellDef> User Email </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.customerEmail}} </mat-cell>
+    </ng-container>
+  
+    <!-- Age Definition -->
+    <ng-container matColumnDef="customerId">
+      <mat-header-cell *matHeaderCellDef> User ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.customerId}} </mat-cell>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Current Account Status </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.status}}
+        
+      </mat-cell>
+    </ng-container>
+
+    <!-- edit Definition -->
+    <ng-container matColumnDef="statuschange">
+      <mat-header-cell *matHeaderCellDef > Action for Order Status Change </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button *ngIf="row.status" (click) = "statusOneUpdate(row.status, row._id)">Ready</button>
+        <button *ngIf="row.status" (click) = "statusTwoUpdate(row.status, row._id)">Completed</button>
+      </mat-cell>
+    </ng-container>
+  
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['customerEmail', 'customerId', 'status', 'statuschange']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['customerEmail', 'customerId', 'status', 'statuschange']"></mat-row>
+  </mat-table>
